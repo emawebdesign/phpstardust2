@@ -1,4 +1,4 @@
-# phpstardust
+# phpstardust2
 CMS based on CakePHP. A CakePHP plugin.
 
 Phpstardust2 IS NOT COMPATIBLE WITH Phpstardust1.
