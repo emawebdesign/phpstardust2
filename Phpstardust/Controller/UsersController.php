@@ -225,7 +225,7 @@ class UsersController extends PhpstardustAppController {
 			throw new NotFoundException($this->Psd->text('Element not found.'));
 		}
 		
-		if (AuthComponent::user('id')!=$id) {
+		if (AuthComponent::user('role')!="admin" && AuthComponent::user('id')!=$id) {
 			throw new NotFoundException($this->Psd->text('Element not found.'));
 		}
 		
