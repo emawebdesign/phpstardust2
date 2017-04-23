@@ -97,7 +97,7 @@ class ArticlesController extends PhpstardustAppController {
 			throw new NotFoundException($this->Psd->text('Element not found.'));
 		}
 		
-		if (AuthComponent::user('id')!=$row[$this->entity]["user_id"]) {
+		if ((AuthComponent::user('role')!="admin" && AuthComponent::user('role')!="editor") && AuthComponent::user('id')!=$row[$this->entity]["user_id"]) {
 			
 			$this->Session->setFlash(
 				$this->Psd->text('Access denied!'), 'flash_success'
