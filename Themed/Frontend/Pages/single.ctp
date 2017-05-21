@@ -25,9 +25,12 @@
 					endforeach;
 				?>
 				</p>
+				  
+				<?php if ($row[$model]["image"]!="") { ?>
 				<img src="<?php echo $this->Psd->frontend('image', $row[$model]["id"], $model); ?>" alt="<?php echo $row[$model]["title"]; ?>" class="img-responsive">
-                
-                <?php echo $row[$model]["text"]; ?>
+                		<?php } ?>
+				  
+                		<?php echo $row[$model]["text"]; ?>
                 
 				<hr>
 				<p class="pull-left"><?php echo $this->Psd->frontend('author', $row[$model]["user_id"]); ?><br /><?php echo $this->Psd->text('Category:') .' ' .$this->Psd->frontend('category', $row[$model]["categorie_id"]); ?></p>
