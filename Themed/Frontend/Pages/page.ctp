@@ -12,9 +12,11 @@
 			<div class="panel panel-default">
 			  <div class="panel-body">
 				<h2><?php echo $row[$model]["title"]; ?></h2>
+				<?php if ($row[$model]["image"]!="") { ?>
 				<img src="<?php echo $this->Psd->frontend('image', $row[$model]["id"], $model); ?>" alt="<?php echo $row[$model]["title"]; ?>" class="img-responsive">
-                
-                <?php echo $row[$model]["text"]; ?>
+                		<?php } ?>
+				  
+                		<?php echo $row[$model]["text"]; ?>
                 
 			  </div>
 			</div>
