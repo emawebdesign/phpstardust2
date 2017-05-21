@@ -99,6 +99,10 @@ class Page extends PhpstardustAppModel {
 		
 		if (isset($this->data[$this->alias]['tags'])) $this->data[$this->alias]['tags'] = $this->prepareTags($this->data[$this->alias]['tags']);
 		
+		if (isset($this->data[$this->alias]['noindex']) && $this->data[$this->alias]['noindex']=="N") $this->data[$this->alias]['noindex'] = 0;
+			
+		if (isset($this->data[$this->alias]['nofollow']) && $this->data[$this->alias]['nofollow']=="N") $this->data[$this->alias]['nofollow'] = 0;
+		
 		return true;
 		
 	}
