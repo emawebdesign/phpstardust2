@@ -381,7 +381,7 @@ class PsdComponent extends Component {
 	
 	
 	
-	public function crop($entity = NULL, $data = array(), $id = NULL) {
+	public function crop($entity = NULL, $data = array(), $field = NULL, $id = NULL) {
 		
 		$model = ClassRegistry::init($entity);
 		
@@ -393,7 +393,7 @@ class PsdComponent extends Component {
 			
 		unset($data[$entity]["size"]);
 		
-		$src = Configure::read('Psd.uploads') .$row[$entity]["image"];
+		$src = Configure::read('Psd.uploads') .$row[$entity][$field];
 		
 		$file = pathinfo($src);
 		
