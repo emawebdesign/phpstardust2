@@ -21,10 +21,10 @@
     <div class="panel-body">
         <div class="row" id="images">
         
-        	<?php if ($this->data[$model]["image"]!="") { ?>
+        	<?php if ($this->data[$model][$field]!="") { ?>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             
-            	<a href="<?php echo Configure::read('Psd.url'); ?>/files/uploads/<?php echo $this->data[$model]["image"]; ?>" class="thumbnail" target="_blank"><img class="img-responsive" src="<?php echo Configure::read('Psd.url'); ?>/files/uploads/<?php echo $this->data[$model]["image"]; ?>"></a>
+            	<a href="<?php echo Configure::read('Psd.url'); ?>/files/uploads/<?php echo $this->data[$model][$field]; ?>" class="thumbnail" target="_blank"><img class="img-responsive" src="<?php echo Configure::read('Psd.url'); ?>/files/uploads/<?php echo $this->data[$model][$field]; ?>"></a>
                 
             </div>
             
