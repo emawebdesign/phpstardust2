@@ -154,7 +154,7 @@ class ArticlesController extends PhpstardustAppController {
 	
 		if ($this->request->is(array('post', 'put'))) {
 			
-			if ($this->Psd->crop($this->entity, $this->request->data, $id)) {
+			if ($this->Psd->crop($this->entity, $this->request->data, "image", $id)) {
 			
 				$this->Session->setFlash(
 					$this->Psd->text('Image cropped.'), 'flash_success'
