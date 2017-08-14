@@ -16,7 +16,7 @@
 				<img src="<?php echo $this->Psd->frontend('image', $row[$model]["id"], $model); ?>" alt="<?php echo $row[$model]["title"]; ?>" class="img-responsive">
                 		<?php } ?>
 				  
-                		<?php echo $row[$model]["text"]; ?>
+                		<?php echo html_entity_decode($row[$model]["text"], ENT_QUOTES, 'UTF-8'); ?>
                 
 			  </div>
 			</div>
