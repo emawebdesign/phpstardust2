@@ -94,7 +94,8 @@ class Page extends PhpstardustAppModel {
 			$this->data = $this->cleanVars($this->data);
 		}
 		
-		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+		if (AuthComponent::user('id')) $this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+		
 		if (isset($this->data[$this->alias]['title']) && !isset($this->data[$this->alias]['id'])) $this->data[$this->alias]['slug'] = $this->getSlug($this->data[$this->alias]['title']);
 		
 		if (isset($this->data[$this->alias]['tags'])) $this->data[$this->alias]['tags'] = $this->prepareTags($this->data[$this->alias]['tags']);
