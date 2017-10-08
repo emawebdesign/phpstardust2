@@ -16,6 +16,7 @@ Configure::write(
 		'subtitle' => 'CMS based on CakePHP',
 		'email' => 'your@email',
         'url' => 'http://www.example.com',
+		'secretkey' => 'your_secret_key',
 		'https' => false,
 		'roles' => array(
 			'admin' => 'Administrator',
