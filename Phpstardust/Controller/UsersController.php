@@ -192,7 +192,7 @@ class UsersController extends PhpstardustAppController {
         if ($this->request->is('post')) {
 			
 			$this->request->data[$this->entity]["activationcode"] = md5($this->Psd->generatePassword());
-			$this->request->data[$this->entity]["token"] = base64_encode(mcrypt_create_iv(32));
+			$this->request->data[$this->entity]["token"] = $this->Psd->getJwt(array('username' => $this->request->data[$this->entity]["username"]));
 			
             $this->{$this->entity}->create();
 			
