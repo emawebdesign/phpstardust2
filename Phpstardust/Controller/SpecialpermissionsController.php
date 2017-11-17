@@ -31,9 +31,13 @@ class SpecialpermissionsController extends PhpstardustAppController {
 		
 		$rows = $this->Paginator->paginate($this->entity);
 		
+		$count = $this->{$this->entity}->find('count', array(
+			'conditions' => $conditions
+		));
+		
 		$this->set('model', $this->entity);
 		$this->set('rows', $rows);
-		$this->set('count', count($rows));
+		$this->set('count', $count);
 		
 	}
 	
