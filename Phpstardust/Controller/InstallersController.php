@@ -164,7 +164,7 @@ class InstallersController extends PhpstardustAppController {
 					$date = date("Y-m-d H:i:s");
 			
 					$sql = "INSERT INTO `" .$prefix ."settings` (`id`, `title`, `description`, `timezone`, `language`, `enableog`, `ogtype`, `ogimage`, `status`, `noindex`, `nofollow`, `facebook_profile`, `googleplus_profile`, `instagram_profile`, `linkedin_profile`, `twitter_profile`, `youtube_profile`, `modified`) VALUES
-(1, '" .$this->request->data[$this->entity]["title"] ."', '" .$this->request->data[$this->entity]["description"] ."', '" .$this->request->data[$this->entity]["timezone"] ."', '" .$this->request->data[$this->entity]["language"] ."', 0, 'website', '', 0, 0, 0, '', '', '', '', '', '', '" .$date ."');";
+(1, '" .addslashes(strip_tags($this->request->data[$this->entity]["title"])) ."', '" .addslashes(strip_tags($this->request->data[$this->entity]["description"])) ."', '" .$this->request->data[$this->entity]["timezone"] ."', '" .$this->request->data[$this->entity]["language"] ."', 0, 'website', '', 0, 0, 0, '', '', '', '', '', '', '" .$date ."');";
 					
 					$db->query($sql);
 					
