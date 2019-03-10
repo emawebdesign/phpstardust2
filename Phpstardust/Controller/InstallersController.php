@@ -162,11 +162,15 @@ class InstallersController extends PhpstardustAppController {
 					$db->query($sql);
 					
 					$date = date("Y-m-d H:i:s");
-			
-					$sql = "INSERT INTO `" .$prefix ."settings` (`id`, `title`, `description`, `timezone`, `language`, `enableog`, `ogtype`, `ogimage`, `status`, `noindex`, `nofollow`, `facebook_profile`, `googleplus_profile`, `instagram_profile`, `linkedin_profile`, `twitter_profile`, `youtube_profile`, `modified`) VALUES
-(1, '" .addslashes(strip_tags($this->request->data[$this->entity]["title"])) ."', '" .addslashes(strip_tags($this->request->data[$this->entity]["description"])) ."', '" .$this->request->data[$this->entity]["timezone"] ."', '" .$this->request->data[$this->entity]["language"] ."', 0, 'website', '', 0, 0, 0, '', '', '', '', '', '', '" .$date ."');";
-					
-					$db->query($sql);
+
+          $title = addslashes(strip_tags($this->request->data[$this->entity]["title"]));
+          $description = addslashes(strip_tags($this->request->data[$this->entity]["description"]));
+          $timezone = $this->request->data[$this->entity]["timezone"];
+          $language = $this->request->data[$this->entity]["language"];
+      
+          $sql = "INSERT INTO `" .$prefix ."settings` (`id`, `title`, `description`, `timezone`, `language`, `enableog`, `ogtype`, `ogimage`, `status`, `noindex`, `nofollow`, `facebook_profile`, `googleplus_profile`, `instagram_profile`, `linkedin_profile`, `twitter_profile`, `youtube_profile`, `modified`) VALUES (1, '" .$title ."', '" .$description ."', '" .$timezone ."', '" .$language ."', 0, 'website', '', 0, 0, 0, '', '', '', '', '', '', '" .$date ."');";
+          
+          $db->query($sql);
 					
 					$this->request->data[$this->entity]["activationcode"] = md5($this->Psd->generatePassword());
 					$this->request->data[$this->entity]["token"] = $this->Psd->getJwt(array('username' => $this->request->data[$this->entity]["username"]));
